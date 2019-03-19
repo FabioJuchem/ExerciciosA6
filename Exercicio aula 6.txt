@@ -62,5 +62,133 @@ delete from public.uf
 
 exerc. 4
 
+	insert into cidade(id_uf,nome)
+		values ('2','Taubaté'),
+			('2','Tremembé'),
+			('2','Pimdamonhangaba');
+
+exerc. 5 
+update public.cidade set nome='Lunardelli'
+	where id = 7;
+
+update public.cidade set nome='Jandaia'
+	where id = 13;
+
+update public.cidade set nome='Cidade Canção'
+	where id = 6;
+
+exerc. 6
+
+	select cidade.nome,uf.nome
+	from cidade join uf
+	on uf.id = cidade.id_uf
+	order by cidade.nome;
+
+	select cidade.nome,uf.nome
+	from cidade join uf
+	on uf.id = cidade.id_uf
+	order by uf.nome;
+
+Exerc. 7
+
+	select count(*) cidade
+	from cidade where id_uf = 2;
+
+exerc. 8 
+
+	alter table endereco
+	add column tipo_endereco varchar(100);
+
+exerc. 9
+
+	insert into pessoa(id,nome,cpf)
+	values('1','José Bezerra','0869554139');
+
+	insert into pessoa(id,nome,cpf)
+	values('2','Maria ntonieta','0869454539');
+
+	insert into pessoa(id,nome,cpf)
+	values('3','Donque Chote','0811556485');
+
+	insert into endereco(id_cidade,id_pessoa,logradouro,numero,cep,complemento,tipo_endereco)
+	values ('9','1','Rua dos ventos','1150','75848415','casa b','RESIDENCIAL');
+
+	insert into endereco(id_cidade,id_pessoa,logradouro,numero,cep,complemento,tipo_endereco)
+	values ('9','1','Rua das raposas','1220','161865875','A','COMERCIAL');
+
+	insert into endereco(id_cidade,id_pessoa,logradouro,numero,cep,complemento,tipo_endereco)
+	values ('12','3','Rua das Frutas','8115','8185138','predio','RESIDENCIAL');
+
+	insert into endereco(id_cidade,id_pessoa,logradouro,numero,cep,complemento,tipo_endereco)
+	values ('12','3','Av. São Judas Tadeu','4556','45184144','Casa','COMERCIAL');
+
+	insert into endereco(id_cidade,id_pessoa,logradouro,numero,cep,complemento,tipo_endereco)
+	values ('11','2','Rua das borboletas','2550','8185138','predio','RESIDENCIAL');
+
+	insert into endereco(id_cidade,id_pessoa,logradouro,numero,cep,complemento,tipo_endereco)
+	values ('11','2','Rua das raposas','1220','161865875','A','COMERCIAL');
+
+exerc. 10 
+
+insert into pessoa(id,nome,cpf,)
+values('4','Antonio Prata','1534698745');
+
+insert into pessoa(id,nome,cpf,)
+values('5','Maria Bernadete','1534698745');
+
+
+insert into endereco(id_cidade,id_pessoa,logradouro,numero,cep,complemento,tipo_endereco)
+values ('15','4','Av Brasil','2880','45618514','predio','RESIDENCIAL');
+
+insert into endereco(id_cidade,id_pessoa,logradouro,numero,cep,complemento,tipo_endereco)
+values ('15','4','Av Bom Treino','4156','161865875','A','COMERCIAL');
+
+
+
+insert into endereco(id_cidade,id_pessoa,logradouro,numero,cep,complemento,tipo_endereco)
+values ('16','5','Anhanguera','3153','4548154','Casa A','RESIDENCIAL');
+
+insert into endereco(id_cidade,id_pessoa,logradouro,numero,cep,complemento,tipo_endereco)
+values ('16','5','Av Jose Freire','5548','75481411','A','COMERCIAL');
+
+
+exerc. 11 
+
+insert into pessoa(id,nome,cpf,)
+values('6','Keanu Reaves','4415487816');
+
+insert into pessoa(id,nome,cpf)
+values('7','Neo','4571148848');
+
+insert into endereco(id_cidade,id_pessoa,logradouro,numero,cep,complemento,tipo_endereco)
+values ('2','6','Rua da Matrix','0110','110110100','0101','COMERCIAL');
+
+insert into endereco(id_cidade,id_pessoa,logradouro,numero,cep,complemento,tipo_endereco)
+values ('3','7','Av. Bom Pastor','2145','161865875','B','COMERCIAL');
+
+exerc. 12
+
+select p.nome,e.logradouro,uf.nome
+from pessoa as p inner join endereco as e 
+on p.id = e.id_pessoa
+inner join cidade as c on e.id_cidade = c.id
+inner join uf on uf.id = c.id_uf
+order by p.nome,uf.nome,c.nome;
+
+exerc. 13
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .
