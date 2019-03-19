@@ -54,4 +54,13 @@ values
 insert into public.cidade (id_uf,nome)
 values 
 		('2','Ribeirão Preto');
+
+Exerc. 3
+
+delete from public.uf
+	where id = (ID respectivo de cada estado);
+
+exerc. 4
+
+
 .
