@@ -178,6 +178,60 @@ order by p.nome,uf.nome,c.nome;
 exerc. 13
 
 
+delete  from pessoa  
+using pessoa as p join endereco as e
+on p.id = e.id_pessoa
+where e.id_cidade = 14;
+
+exerc. 14
+
+update endereco set cep = '000000000' where tipo_endereco like '%RESIDENCIAL%';
+
+exerc. 15
+
+insert into recibo (id_cliente,id_emitente,id_cidade,sequencia,data_recibo,assinatura,valor)
+values ('2','6','9','1','2019-03-19','Keanu Reaves','250');
+
+insert into recibo (id_cliente,id_emitente,id_cidade,sequencia,data_recibo,assinatura,valor)
+values ('1','6','9','2','2019-03-19','Keanu Reaves','181');
+
+exerc. 16
+
+insert into recibo (id_cliente,id_emitente,id_cidade,sequencia,data_recibo,assinatura,valor)
+values ('3','7','11','3','2019-03-19','Mister Anderson','1500');
+
+insert into recibo (id_cliente,id_emitente,id_cidade,sequencia,data_recibo,assinatura,valor)
+values ('4','3','6','4','2019-03-19','Donque Chote','2899');
+
+exerc. 17 
+
+select  re.sequencia as numero_recibo,re.data_recibo as data_recibo,re.valor as valor_recibo, pe.nome ,uf.nome as nome_estado, pe2.nome as nome_emitente, uf2.nome as estado_do_emitente
+from recibo re
+left join pessoa pe
+on re.id_cliente = pe.id
+left join cidade ci
+on re.id_cidade = ci.id
+left join uf uf
+on ci.id_uf = uf.id
+left join pessoa pe2
+on re.id_emitente = pe2.id
+left join cidade ci2
+on re.id_cidade = ci2.id
+left join uf uf2
+on ci2.id_uf = uf2.id
+order by re.data_recibo,
+pe.nome,
+pe2.nome;
+
+
+exerc 18 
+
+select count(sequencia) as quant_recibos,sum(valor) as valor_total
+from recibo re		
+inner join cidade c on re.id_cidade = c.id
+inner join uf on c.id_uf = uf.id
+where uf.id = '21';
+
 
 
 
